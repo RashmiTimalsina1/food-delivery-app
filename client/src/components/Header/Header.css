@@ -1,0 +1,47 @@
+.header {
+    height: 34vw;
+    margin: 30px auto;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.header-contents {
+    position: absolute;
+    bottom: 10%;
+    left: 6%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 50%;
+}
+
+.header-contents h2 {
+    color: white;
+    font-size: 48px;
+    font-weight: 600;
+}
+
+.header-contents p {
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.header-contents button {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    color: #555;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.header-contents button:hover {
+    background: tomato;
+    color: white;
+}

@@ -1,9 +1,16 @@
+import Navbar from "../components/Navbar/Navbar";
+import Header from "../components/Header/Header";
+import ExploreMenu from "../components/ExploreMenu/ExploreMenu";
+import FoodDisplay from "../components/FoodDisplay/FoodDisplay";
+
 function Home() {
   return (
-    <div>
-      <h1>🍔 Food Delivery App</h1>
-      <p>Welcome to my Food Delivery App!</p>
-    </div>
+    <>
+      <Navbar />
+      <Header />
+      <ExploreMenu />
+      <FoodDisplay />
+    </>
   );
 }
 

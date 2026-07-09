@@ -1,0 +1,46 @@
+.explore-menu{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.explore-menu h1{
+    color:#262626;
+    font-weight:500;
+}
+
+.explore-menu-text{
+    max-width:60%;
+    color:#808080;
+}
+
+.explore-menu-list{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+    text-align:center;
+    margin:20px 0;
+    overflow-x:auto;
+}
+
+.explore-menu-list img{
+    width:7.5vw;
+    min-width:80px;
+    cursor:pointer;
+    border-radius:50%;
+    transition:0.2s;
+}
+
+.explore-menu-list p{
+    margin-top:10px;
+    color:#747474;
+    font-size:16px;
+}
+
+.explore-menu hr{
+    margin:20px 0;
+    height:2px;
+    background:#e2e2e2;
+    border:none;
+}
