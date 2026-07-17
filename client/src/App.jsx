@@ -1,14 +1,17 @@
-import React from 'react'
-import Navbar from './components/Navbar/Navbar'
+import { useState } from "react";
 import Home from "./pages/Home";
+import LoginPopup from "./components/LoginPopup/LoginPopup";
+import "./App.css";
 
-const App = () => {
+function App() {
+  const [showLogin, setShowLogin] = useState(false);
+
   return (
-    <div className='app'>
-    <Home/>
-
+    <div className="app">
+      {showLogin && <LoginPopup setShowLogin={setShowLogin} />}
+      <Home setShowLogin={setShowLogin} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

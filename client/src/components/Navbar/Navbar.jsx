@@ -2,9 +2,10 @@ import React from "react";
 import "./Navbar.css";
 import { assets } from "../../assets/assets";
 
-function Navbar() {
+function Navbar({ setShowLogin }) {
   return (
     <nav className="navbar">
+
       <div className="logo">
         🍔 Food Delivery
       </div>
@@ -19,8 +20,12 @@ function Navbar() {
       <div className="nav-right">
         <button>🔍</button>
         <button>🛒</button>
-        <button>Sign In</button>
+
+        <button onClick={() => setShowLogin(true)}>
+          Sign In
+        </button>
       </div>
+
     </nav>
   );
 }
