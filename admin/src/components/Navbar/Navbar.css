@@ -1,0 +1,16 @@
+.navbar{
+    width:100%;
+    height:70px;
+    padding:0 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#ffffff;
+    border-bottom:1px solid #e5e5e5;
+    box-sizing:border-box;
+}
+
+.profile{
+    font-weight:600;
+    cursor:pointer;
+}
