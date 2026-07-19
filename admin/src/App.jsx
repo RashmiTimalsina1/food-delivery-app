@@ -1,6 +1,12 @@
 import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
 
+import { Routes, Route } from "react-router-dom";
+
+import Add from "./pages/Add/Add";
+import List from "./pages/List/List";
+import Orders from "./pages/Orders/Orders";
+
 function App() {
   return (
     <>
@@ -9,8 +15,12 @@ function App() {
       <div style={{ display: "flex" }}>
         <Sidebar />
 
-        <div style={{ padding: "30px" }}>
-          <h2>Welcome to Admin Panel</h2>
+        <div style={{ flex: 1, padding: "30px" }}>
+          <Routes>
+            <Route path="/add" element={<Add />} />
+            <Route path="/list" element={<List />} />
+            <Route path="/orders" element={<Orders />} />
+          </Routes>
         </div>
       </div>
     </>
