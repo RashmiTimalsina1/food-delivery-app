@@ -1,6 +1,9 @@
 import upload_area from "../../assets/upload_area.png";
 import "./Add.css";
 import { useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { url } from "../../utils/config";
 
 const Add = () => {
 
@@ -13,6 +16,7 @@ const Add = () => {
     category: "Salad",
   });
 
+  // Handle input changes
   const onChangeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -23,32 +27,39 @@ const Add = () => {
     }));
   };
 
+  // Handle form submit
+  const onSubmitHandler = async (event) => {
+    event.preventDefault();
+
+    console.log("Form Submitted");
+    console.log(data);
+    console.log(image);
+  };
+
   return (
     <div className="add">
 
       <h2>Add New Food</h2>
 
-      <form>
+      <form onSubmit={onSubmitHandler}>
 
         <div>
           <p>Upload Image</p>
 
           <label htmlFor="image">
-  <img
-    src={image ? URL.createObjectURL(image) : upload_area}
-    alt="Upload"
-    className="upload-image"
-  />
-</label>
-<label htmlFor="image">
-</label>
+            <img
+              src={image ? URL.createObjectURL(image) : upload_area}
+              alt="Upload"
+              className="upload-image"
+            />
+          </label>
 
-<input
-  type="file"
-  id="image"
-  hidden
-  onChange={(event) => setImage(event.target.files[0])}
-/>
+          <input
+            type="file"
+            id="image"
+            hidden
+            onChange={(event) => setImage(event.target.files[0])}
+          />
         </div>
 
         <div>
