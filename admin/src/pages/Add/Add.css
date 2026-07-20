@@ -24,3 +24,9 @@
     border:none;
     cursor:pointer;
 }
+.upload-image {
+    width: 120px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}

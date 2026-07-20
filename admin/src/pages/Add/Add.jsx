@@ -1,3 +1,4 @@
+import upload_area from "../../assets/upload_area.png";
 import "./Add.css";
 import { useState } from "react";
 
@@ -32,10 +33,22 @@ const Add = () => {
         <div>
           <p>Upload Image</p>
 
-          <input
-            type="file"
-            onChange={(event) => setImage(event.target.files[0])}
-          />
+          <label htmlFor="image">
+  <img
+    src={image ? URL.createObjectURL(image) : upload_area}
+    alt="Upload"
+    className="upload-image"
+  />
+</label>
+<label htmlFor="image">
+</label>
+
+<input
+  type="file"
+  id="image"
+  hidden
+  onChange={(event) => setImage(event.target.files[0])}
+/>
         </div>
 
         <div>
