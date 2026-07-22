@@ -25,6 +25,23 @@ const List = () => {
   useEffect(() => {
     fetchList();
   }, []);
+  const removeFood = async (foodId) => {
+  try {
+    const response = await axios.post(`${url}/api/food/remove`, {
+      id: foodId,
+    });
+
+    if (response.data.success) {
+      alert("Food Removed Successfully");
+      fetchList(); // Refresh the list
+    } else {
+      alert(response.data.message);
+    }
+  } catch (error) {
+    console.log(error);
+    alert("Error removing food");
+  }
+};
 
  return (
   <div className="list add">
@@ -36,6 +53,7 @@ const List = () => {
         <b>Name</b>
         <b>Category</b>
         <b>Price</b>
+         <b>Action</b>
       </div>
 
       {list.map((item, index) => (
@@ -51,6 +69,17 @@ const List = () => {
           <p>{item.category}</p>
 
           <p>Rs. {item.price}</p>
+          <p
+  onClick={() => removeFood(item._id)}
+  style={{
+    cursor: "pointer",
+    color: "red",
+    fontWeight: "bold",
+    fontSize: "20px",
+  }}
+>
+  ×
+</p>
         </div>
       ))}
     </div>

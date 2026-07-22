@@ -4,7 +4,7 @@
 
 .list-table-format{
     display:grid;
-    grid-template-columns:120px 1fr 1fr 120px;
+    grid-template-columns:120px 1fr 1fr 120px 80px;
     align-items:center;
     gap:20px;
     padding:12px 15px;
