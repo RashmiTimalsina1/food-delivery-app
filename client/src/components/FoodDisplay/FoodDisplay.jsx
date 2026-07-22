@@ -1,14 +1,21 @@
 import "./FoodDisplay.css";
-import { food_list } from "../../assets/assets";
 import FoodItem from "../FoodItem/FoodItem";
+import { useContext } from "react";
+import { StoreContext } from "../../context/StoreContext";
 
 function FoodDisplay() {
+
+  const { food_list } = useContext(StoreContext);
+
   return (
     <div className="food-display">
+
       <h2>Top dishes near you</h2>
 
       <div className="food-display-list">
+
         {food_list.map((item) => (
+
           <FoodItem
             key={item._id}
             id={item._id}
@@ -17,8 +24,11 @@ function FoodDisplay() {
             price={item.price}
             description={item.description}
           />
+
         ))}
+
       </div>
+
     </div>
   );
 }

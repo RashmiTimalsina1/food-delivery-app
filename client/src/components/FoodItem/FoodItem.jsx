@@ -1,4 +1,5 @@
 import "./FoodItem.css";
+import { url } from "../../utils/config";
 import { assets } from "../../assets/assets";
 import { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
@@ -14,7 +15,7 @@ function FoodItem({ id, name, image, price, description }) {
 
                 <img
                     className="food-item-image"
-                    src={image}
+                    src={`${url}/images/${image}`}
                     alt={name}
                 />
 
