@@ -26,13 +26,36 @@ const List = () => {
     fetchList();
   }, []);
 
-  return (
-    <div className="list add">
-      <h2>All Food List</h2>
+ return (
+  <div className="list add">
+    <h2>All Food List</h2>
 
-      <p>Total Foods: {list.length}</p>
+    <div className="list-table">
+      <div className="list-table-format title">
+        <b>Image</b>
+        <b>Name</b>
+        <b>Category</b>
+        <b>Price</b>
+      </div>
+
+      {list.map((item, index) => (
+        <div key={index} className="list-table-format">
+          <img
+            src={`${url}/images/${item.image}`}
+            alt={item.name}
+            width="70"
+          />
+
+          <p>{item.name}</p>
+
+          <p>{item.category}</p>
+
+          <p>Rs. {item.price}</p>
+        </div>
+      ))}
     </div>
-  );
+  </div>
+);
 };
 
 export default List;

@@ -1,0 +1,22 @@
+.list-table{
+    width:100%;
+}
+
+.list-table-format{
+    display:grid;
+    grid-template-columns:120px 1fr 1fr 120px;
+    align-items:center;
+    gap:20px;
+    padding:12px 15px;
+    border:1px solid #cacaca;
+}
+
+.list-table-format.title{
+    background:#f9f9f9;
+    font-weight:600;
+}
+
+.list-table-format img{
+    width:70px;
+    border-radius:8px;
+}
