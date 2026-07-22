@@ -29,13 +29,21 @@ const Add = () => {
 
   // Handle form submit
   const onSubmitHandler = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    console.log("Form Submitted");
-    console.log(data);
-    console.log(image);
-  };
+  const formData = new FormData();
 
+  formData.append("name", data.name);
+  formData.append("description", data.description);
+  formData.append("price", Number(data.price));
+  formData.append("category", data.category);
+  formData.append("image", image);
+
+  const response = await axios.post(
+    `${url}/api/food/add`,
+    formData
+  );
+};
   return (
     <div className="add">
 

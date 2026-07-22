@@ -4,7 +4,7 @@ import fs from "fs";
 // Add Food Item
 const addFood = async (req, res) => {
   try {
-    const image_filename = `${req.file.filename}`;
+    const image_filename = req.file.filename;
 
     const food = new foodModel({
       name: req.body.name,
@@ -18,15 +18,20 @@ const addFood = async (req, res) => {
 
     res.json({
       success: true,
-      message: "Food Added",
+      message: "Food Added Successfully",
     });
 
   } catch (error) {
     console.log(error);
 
+    // Delete uploaded image if database save fails
+    if (req.file) {
+      fs.unlink(`uploads/${req.file.filename}`, () => {});
+    }
+
     res.json({
       success: false,
-      message: "Error",
+      message: "Error adding food",
     });
   }
 };
