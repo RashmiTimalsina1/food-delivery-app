@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Header from "../components/Header/Header";
 import ExploreMenu from "../components/ExploreMenu/ExploreMenu";
@@ -13,6 +12,6 @@ function Home({ setShowLogin }) {
       <FoodDisplay />
     </>
   );
-}
+}``
 
 export default Home;

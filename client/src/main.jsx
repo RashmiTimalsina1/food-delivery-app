@@ -7,11 +7,15 @@ import "react-toastify/dist/ReactToastify.css";
 import App from "./App";
 import "./index.css";
 
+import StoreContextProvider from "./context/StoreContext";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <>
-      <ToastContainer />
-      <App />
-    </>
-  </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter>
+      <StoreContextProvider>
+        <ToastContainer />
+        <App />
+      </StoreContextProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );
