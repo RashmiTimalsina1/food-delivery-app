@@ -70,4 +70,47 @@ const registerUser = async (req, res) => {
   }
 };
 
-export { registerUser };
+// Login User
+const loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // Check if user exists
+    const user = await userModel.findOne({ email });
+
+    if (!user) {
+      return res.json({
+        success: false,
+        message: "User doesn't exist",
+      });
+    }
+
+    // Compare password
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      return res.json({
+        success: false,
+        message: "Invalid credentials",
+      });
+    }
+
+    // Generate JWT
+    const token = createToken(user._id);
+
+    res.json({
+      success: true,
+      token,
+    });
+
+  } catch (error) {
+    console.log(error);
+
+    res.json({
+      success: false,
+      message: "Error",
+    });
+  }
+};
+
+export { registerUser, loginUser };
