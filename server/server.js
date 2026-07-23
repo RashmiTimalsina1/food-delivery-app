@@ -1,4 +1,5 @@
 import dns from "node:dns";
+import userRouter from "./routes/userRoute.js";
 
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
 dns.setDefaultResultOrder("ipv4first");
@@ -26,6 +27,7 @@ app.use("/images", express.static("uploads"));
 
 // Food API Routes
 app.use("/api/food", foodRouter);
+app.use("/api/user", userRouter);
 
 // Test Route
 app.get("/", (req, res) => {
