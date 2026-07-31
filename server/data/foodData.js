@@ -1,0 +1,58 @@
+export const foodData = [
+  {
+    name: "Greek Salad",
+    description: "Fresh vegetable salad with healthy ingredients",
+    price: 12,
+    image: "food_1.png",
+    category: "Salad",
+  },
+  {
+    name: "Veg Salad",
+    description: "Healthy mixed vegetable salad",
+    price: 18,
+    image: "food_2.png",
+    category: "Salad",
+  },
+  {
+    name: "Clover Salad",
+    description: "Fresh clover salad with vegetables",
+    price: 16,
+    image: "food_3.png",
+    category: "Salad",
+  },
+  {
+    name: "Chicken Salad",
+    description: "Healthy chicken salad",
+    price: 24,
+    image: "food_4.png",
+    category: "Salad",
+  },
+    {
+    name: "Lasagna Rolls",
+    description: "Delicious cheesy lasagna rolls",
+    price: 14,
+    image: "food_5.png",
+    category: "Rolls",
+  },
+  {
+    name: "Peri Peri Rolls",
+    description: "Spicy peri peri rolls",
+    price: 12,
+    image: "food_6.png",
+    category: "Rolls",
+  },
+  {
+    name: "Chicken Rolls",
+    description: "Soft rolls filled with chicken",
+    price: 20,
+    image: "food_7.png",
+    category: "Rolls",
+  },
+  {
+    name: "Veg Rolls",
+    description: "Fresh vegetable rolls",
+    price: 15,
+    image: "food_8.png",
+    category: "Rolls",
+  },
+  ];

@@ -1,14 +1,13 @@
-import mongoose from "mongoose";
 import dotenv from "dotenv";
+dotenv.config({ path: "./.env" });
+
+import connectDB from "./config/db.js";
 import foodModel from "./models/foodModel.js";
 import { foodData } from "./data/foodData.js";
 
-dotenv.config();
-
-const connectDB = async () => {
+const seedData = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log("MongoDB Connected");
+    await connectDB();
 
     await foodModel.deleteMany({});
     console.log("Old food data deleted");
@@ -16,11 +15,11 @@ const connectDB = async () => {
     await foodModel.insertMany(foodData);
     console.log("Food data inserted successfully");
 
-    process.exit();
+    process.exit(0);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     process.exit(1);
   }
 };
 
-connectDB();
+seedData();
