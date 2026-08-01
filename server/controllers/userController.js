@@ -31,7 +31,7 @@ const registerUser = async (req, res) => {
       });
     }
 
-    // Validate password length
+    // Validate password
     if (password.length < 8) {
       return res.json({
         success: false,
@@ -52,7 +52,7 @@ const registerUser = async (req, res) => {
 
     const user = await newUser.save();
 
-    // Create token
+    // Generate JWT
     const token = createToken(user._id);
 
     res.json({
@@ -62,73 +62,13 @@ const registerUser = async (req, res) => {
 
   } catch (error) {
     console.log(error);
-
     res.json({
       success: false,
       message: "Error",
     });
   }
 };
-const registerUser = async (req, res) => {
-  try {
-    const { name, email, password } = req.body;
 
-    // Check if user already exists
-    const exists = await userModel.findOne({ email });
-
-    if (exists) {
-      return res.json({
-        success: false,
-        message: "User already exists",
-      });
-    }
-
-    // Validate email
-    if (!validator.isEmail(email)) {
-      return res.json({
-        success: false,
-        message: "Please enter a valid email",
-      });
-    }
-
-    // Validate password
-    if (password.length < 8) {
-      return res.json({
-        success: false,
-        message: "Password should be at least 8 characters",
-      });
-    }
-
-    // Encrypt password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
-
-    // Create new user
-    const newUser = new userModel({
-      name,
-      email,
-      password: hashedPassword,
-    });
-
-    const user = await newUser.save();
-
-    // Generate token
-    const token = createToken(user._id);
-
-    res.json({
-      success: true,
-      token,
-    });
-
-  } catch (error) {
-    console.log(error);
-
-    res.json({
-      success: false,
-      message: "Error",
-    });
-  }
-};
 // Login User
 const loginUser = async (req, res) => {
   try {
@@ -164,7 +104,6 @@ const loginUser = async (req, res) => {
 
   } catch (error) {
     console.log(error);
-
     res.json({
       success: false,
       message: "Error",
