@@ -1,29 +1,26 @@
-import Navbar from "./components/Navbar/Navbar";
-import Sidebar from "./components/Sidebar/Sidebar";
-
-import { Routes, Route, Navigate } from "react-router-dom";
-
-import Add from "./pages/Add/Add";
-import List from "./pages/List/List";
-import Orders from "./pages/Orders/Orders";
+import { useState } from "react";
+import Home from "./pages/Home";
+import LoginPopup from "./components/LoginPopup/LoginPopup";
+import "./App.css";
 
 function App() {
+  const [showLogin, setShowLogin] = useState(false);
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
+
   return (
-    <>
-      <Navbar />
+    <div className="app">
+      {showLogin && (
+        <LoginPopup
+          setShowLogin={setShowLogin}
+          setToken={setToken}
+        />
+      )}
 
-      <div style={{ display: "flex" }}>
-        <Sidebar />
-
-        <div style={{ flex: 1, padding: "30px" }}>
-          <Routes>
-            <Route path="/add" element={<Add />} />
-            <Route path="/list" element={<List />} />
-            <Route path="/orders" element={<Orders />} />
-          </Routes>
-        </div>
-      </div>
-    </>
+      <Home
+        setShowLogin={setShowLogin}
+        token={token}
+      />
+    </div>
   );
 }
 
